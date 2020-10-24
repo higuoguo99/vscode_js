@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      var test1 = new Boolean(1); //布尔类型true
+      var test2 = new Boolean(0); //布尔类型false
+      var test3 = new Boolean(true); //布尔类型true
+      var test4 = new Boolean(false); //布尔类型false
+      var test5 = new Date(); //日期对象
+      var test6 = new String("999 888"); //字符串
+      var test7 = 12345; //整数
+      var test8 = null; //null对象
+      var test9 = undefined; //undefined
+      var test10 = { name: "apple", age: 20 }; //对象类型
+      document.write("<h1>使用String()将不同的对象转换为字符串：</h1>");
+      document.write(String(test1) + "<br />");
+      document.write(String(test2) + "<br />");
+      document.write(String(test3) + "<br />");
+      document.write(String(test4) + "<br />");
+      document.write(String(test5) + "<br />");
+      document.write(String(test6) + "<br />");
+      document.write(String(test7) + "<br />");
+      document.write(String(test8) + "<br />");
+      document.write(String(test9) + "<br />");
+      document.write(String(test10) + "<br />");
+      document.write("<h1>使用String对象的toString()函数转换为字符串：</h1>");
+      document.write(
+        "<h6>一般不会使用这种方法，因为数据本身就是字符串类型了。</h6>"
+      );
+      document.write(
+        "<h1>使用Number对象的toString()函数将Number对象转换为字符串：</h1>"
+      );
+      //默认模式转换
+      var iNum1 = 10;
+      var iNum2 = 10.0;
+      document.write(iNum1.toString() + " <br />"); //输出 "10"
+      document.write(iNum2.toString() + " <br />"); //输出 "10"
+
+      //基模式转换
+      var iNum = 10;
+      document.write(iNum.toString(2) + " <br />"); //输出 "1010"，二进制
+      document.write(iNum.toString(8) + " <br />"); //输出 "12"，八进制
+      document.write(iNum.toString(16) + " <br />"); //输出 "a"，十六进制
+
+      document.write(
+        "<h1>使用Boolean类型对象的toString()函数将Boolean类型对象转换为字符串：</h1>"
+      );
+      //Boolean 类型的 toString() 方法只是输出 "true" 或 "false"，结果由变量的值决定：
+      var bFound = false;
+      document.write(bFound.toString() + " <br />"); //输出 "false"
+      document.write(
+        "<h1>使用Date类型对象的toString()函数将Date类型对象转换为字符串：</h1>"
+      );
+      var d = new Date();
+      document.write(d.toString() + " <br />"); //输出Thu Oct 22 2020 15:45:09 GMT+0800 (中国标准时间)
+      document.write(
+        "<h1>使用数组对象的toString()函数将数组类型对象转换为字符串：</h1>"
+      );
+      var arr = new Array(3);
+      arr[0] = "George";
+      arr[1] = "John";
+      arr[2] = "Thomas";
+      document.write(arr.toString()); //输出：George,John,Thomas
+    </script>
+  </head>
+  <body></body>
+</html>

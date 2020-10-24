@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      //  onmousedown事件：	某个鼠标按键被松开
+      function whichButton(event) {
+        var mx = event.clientX; //获取鼠标指针的 x 坐标
+        var my = event.clientY; //获取鼠标指针的 y 坐标
+        if (event.button == 2) {
+          alert("你点击了右键!坐标点X为：" + mx + ",y为：" + my);
+        } else {
+          alert("你点击了左键!坐标点X为：" + mx + ",y为：" + my);
+        }
+      }
+    </script>
+  </head>
+
+  <body onmousedown="whichButton(event)">
+    <p
+      style="
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        background-color: burlywood;
+      "
+    >
+      测试，左键或右键点击文档，弹出相应提示。
+    </p>
+  </body>
+</html>

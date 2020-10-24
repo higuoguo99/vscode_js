@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   相等运算符==
+      var param1 = "1",
+        param2 = "1"; //字符串类型
+      //类型和数值同时相等true
+      if (param1 == param2) {
+        document.write("类型和数值同时相等true");
+      } else {
+        document.write("不相等");
+      }
+
+      var param3 = 1; //数字类型
+      //类型不相等和数值相等true
+      if (param1 == param3) {
+        document.write("类型不相等和数值相等true。<br />");
+      } else {
+        document.write("不相等");
+      }
+      var param4 = 2;
+      //类型和数值都不相等false
+      if (param1 == param4) {
+        document.write("true");
+      } else {
+        document.write("类型和数值都不相等false。<br />");
+      }
+
+      var param5 = null,
+        param6 = undefined;
+      //如果一个值是null，另一个是undefined，则它们相等
+      if (param5 == param6) {
+        document.write(
+          "如果一个值是null，另一个是undefined，则相等。true。<br />"
+        );
+      } else {
+        document.write("false");
+      }
+      //   恒等运算符===
+      var param11 = "1",
+        param12 = "1"; //字符串类型
+      //类型和数值同时相等true
+      if (param11 === param12) {
+        document.write("类型和数值同时相等true");
+      } else {
+        document.write("不相等");
+      }
+
+      var param13 = 1; //数字类型
+      //类型不相等和数值相等false
+      if (param11 === param13) {
+        document.write("true");
+      } else {
+        document.write("类型不相等和数值相等结果为false。<br />");
+      }
+      var param14 = 2;
+      //类型和数值都不相等false
+      if (param11 === param14) {
+        document.write("true");
+      } else {
+        document.write("类型和数值都不相等false。<br />");
+      }
+
+      var param15 = null,
+        param16 = undefined;
+      //如果一个值是null，另一个是undefined，则它们不相等
+      if (param15 === param16) {
+        document.write("true");
+      } else {
+        document.write(
+          "如果一个值是null，另一个是undefined，则不相等。结果为false。<br />"
+        );
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

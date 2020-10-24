@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选项卡-鼠标经过变换</title>
+    <style>
+      * {
+        font-size: 14px;
+        font-family: Arial, "微软雅黑";
+        margin: 0px;
+        padding: 0px;
+      }
+      #div1 > div,
+      #div2 > div,
+      #div3 > div {
+        display: none;
+        padding: 0px 0px 0px 40px;
+        margin: 0px;
+      }
+      .box .btn {
+        border: 0;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 0;
+      }
+      /* 按钮默认样式 */
+      .box .btn-success {
+        background-color: #5cb85c;
+      }
+      .box .btn-current {
+        background-color: #efefef;
+      }
+      .box .alert-success {
+        background-color: #dff0d8;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div2" class="box box-re">
+      2、选项卡 鼠标点击变换<br /><br />
+      <button type="button" class="btn btn-current">栏目一</button>
+      <button type="button" class="btn btn-success">栏目二</button>
+      <button type="button" class="btn btn-success">栏目三</button>
+      <button type="button" class="btn btn-success">栏目四</button>
+      <div class="alert-success" style="display: block">
+        栏目一的内容<br />栏目一的内容<br />栏目一的内容<br />栏目一的内容
+      </div>
+      <div class="alert-success">
+        栏目二的内容<br />栏目二的内容<br />栏目二的内容<br />栏目二的内容
+      </div>
+      <div class="alert-success">
+        栏目三的内容<br />栏目三的内容<br />栏目三的内容<br />栏目三的内容
+      </div>
+      <div class="alert-success">
+        栏目四的内容<br />栏目四的内容<br />栏目四的内容<br />栏目四的内容
+      </div>
+    </div>
+  </body>
+  <script>
+    // 获取外盒子
+    var oDiv2 = document.getElementById("div2");
+    // 获取所有按钮
+    var aBtn2 = oDiv2.getElementsByTagName("button");
+    // 获取内容所在的所有DIV
+    var aDiv2 = oDiv2.getElementsByTagName("div");
+    for (var i = 0; i < aBtn2.length; i++) {
+      aBtn2[i].index = i;
+      aBtn2[i].onclick = function () {
+        for (var i = 0; i < aBtn2.length; i++) {
+          // 让所有的按钮样式恢复到默认样式
+          aBtn2[i].className = "btn btn-success";
+          // 让所有的DIV块都隐藏
+          aDiv2[i].style.display = "none";
+        }
+        // 设置当前按钮的样式
+        this.className = "btn btn-current";
+        // 设置当前索引下的DIV块显示
+        aDiv2[this.index].style.display = "block";
+      };
+    }
+  </script>
+</html>

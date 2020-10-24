@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var test1= new Boolean(true);
+        var test2= new Boolean(false);
+        var test3= new Date();
+        var test4= new String("999");
+        var test5= new String("999 888");
+        var test6= new String("999.888");
+        var test7= new String("a0.5");//首字母为非数字
+        var test8= new String("0.5a");
+        var test9= new String("-999");
+        document.write("<h1>使用Number()将字符串转换为数字类型：</h1>")
+        document.write(Number(test1)+ "<br />");
+        document.write(Number(test2)+ "<br />");
+        document.write(Number(test3)+ "<br />");
+        document.write(Number(test4)+ "<br />");
+        document.write(Number(test5)+ "<br />");
+        document.write(Number(test6)+ "<br />");
+        document.write(Number(test7)+ "<br />");
+        document.write(Number(test8)+ "<br />");
+        document.write(Number(test9)+ "<br />");
+        document.write("<h1>使用parseInt()将字符串转换为整数：</h1>")
+        document.write(parseInt(test1)+ "<br />");
+        document.write(parseInt(test2)+ "<br />");
+        document.write(parseInt(test3)+ "<br />");
+        document.write(parseInt(test4)+ "<br />");
+        document.write(parseInt(test5)+ "<br />");
+        document.write(parseInt(test9)+ "<br />");
+        document.write("<h1>使用parseInt()将字符串转换为不同进制的整数：</h1>")
+        document.write(parseInt("10")+ "<br />");			//返回 10
+        document.write(parseInt("19",10)+ "<br />");		//返回 19 (10+9)
+        document.write(parseInt("11",2)+ "<br />");		//返回 3 (2+1)
+        document.write(parseInt("17",8)+ "<br />");		//返回 15 (8+7)
+        document.write(parseInt("1f",16)+ "<br />");		//返回 31 (16+15)
+        document.write(parseInt("010")+ "<br />");		//未定：返回 10 或 8
+        document.write("<h1>使用parseFloat()将字符串转换为小数：</h1>")
+        document.write(parseFloat("10")+ "<br />");
+        document.write(parseFloat("10.00")+ "<br />");
+        document.write(parseFloat("10.33")+ "<br />"); 
+        document.write(parseFloat("34 45 66")+ "<br />"); 
+        document.write(parseFloat(" 60 ")+ "<br />"); 
+        document.write(parseFloat("40 years")+ "<br />");
+        //如果字符串的第一个字符不能被转换为数字，那么 parseFloat() 会返回 NaN。
+        document.write(parseFloat("He was 40")+ "<br />");
+         document.write(parseInt(test5)+ "<br />");
+         document.write(parseFloat("314e-2")+ "<br />"); 
+        document.write(parseFloat("0.0314E+2")+ "<br />"); 
+        </script>
+</head>
+<body>
+    
+</body>
+</html>

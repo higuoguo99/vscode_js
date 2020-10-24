@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test">测试</div>
+    <script>
+      document.oncontextmenu = function () {
+        return false;
+      };
+      var oDiv = document.getElementById("test");
+      oDiv.onclick = function (e) {
+        e = e || window.event;
+        var mouseNum = e.button;
+        mx = event.clientX; //获取鼠标指针的 x 坐标
+        my = event.clientY; //获取鼠标指针的 y 坐标
+        this.innerHTML = mouseNum;
+      };
+    </script>
+  </body>
+</html>

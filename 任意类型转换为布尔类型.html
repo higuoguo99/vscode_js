@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var b1 = Boolean(""); //false - 空字符串
+      var b2 = Boolean("hello"); //true - 非空字符串
+      var b3 = Boolean(50); //true - 非零数字
+      var b4 = Boolean(null); //false - null
+      var b5 = Boolean(0); //false - 零
+      var b6 = Boolean("false"); //true - 非空字符串，即使是false，返回的也是true
+      var b7 = Boolean(); //false -无参数
+      var b8 = Boolean(undefined); //false
+      var b9 = Boolean(NaN); //false
+      var b10 = Boolean(new Object()); //true - 对象
+      var b11 = Boolean(0.0); //true - 浮点零
+      document.write("<h1>使用Boolean函数转换为布尔类型：</h1>");
+      document.write(b1 + "<br />");
+      document.write(b2 + "<br />");
+      document.write(b3 + "<br />");
+      document.write(b4 + "<br />");
+      document.write(b5 + "<br />");
+      document.write(b6 + "<br />");
+      document.write(b7 + "<br />");
+      document.write(b8 + "<br />");
+      document.write(b9 + "<br />");
+      document.write(b10 + "<br />");
+      document.write("<h1>使用快捷方法转换为布尔类型：</h1>");
+      document.write(!!1 + "<br />"); //true
+      document.write(!!0 + "<br />"); //false
+      document.write(!!null + "<br />"); //false
+      document.write(!!undefined + "<br />"); //false
+      document.write(!!new Object() + "<br />"); //true
+      document.write(!!"s" + "<br />"); //true
+      document.write(!!"false" + "<br />"); //true
+      document.write(!!0.0 + "<br />"); //false，注意跟上面的用函数结果不一样
+    </script>
+  </head>
+  <body></body>
+</html>

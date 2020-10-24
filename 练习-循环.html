@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #div4 .box {
+        height: 50px;
+        width: 100%;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div4" class="box box-re">
+      <p>
+        <button id="button3" type="button">
+          批量修改样式(变窄变高添加黄色背景)
+        </button>
+      </p>
+      <p>元素个数不定，for循环修改样式。加if判断，再次点击执行返回。</p>
+      <div class="box box-re">可循环变化</div>
+      <div class="box box-re">可循环变化</div>
+      <div class="box box-re">可循环变化</div>
+    </div>
+  </body>
+  <script>
+    var aBtn3 = document.getElementById("button3");
+    aBtn3.onclick = function () {
+      var aDiv3 = document.getElementById("div4").getElementsByTagName("div");
+      if (aDiv3[0].style.background == "yellow") {
+        var i = 0;
+        while (i < aDiv3.length) {
+          aDiv3[i].style.background = "";
+          aDiv3[i].style.height = "";
+          aDiv3[i].style.width = "";
+          i = i + 1;
+        }
+      } else {
+        for (var i = 0; i < aDiv3.length; i++) {
+          aDiv3[i].style.background = "yellow";
+          aDiv3[i].style.height = "150px";
+          aDiv3[i].style.width = "50%";
+        }
+      }
+    };
+  </script>
+</html>

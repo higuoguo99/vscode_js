@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn {
+        background-color: turquoise;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1" class="box">
+      1、表格应用：隔行变色、移入变色<br /><br />
+      <button class="btn">老方法 提取李四单元格</button>
+      <button class="btn">新方法 提取张三单元格</button>
+      <button class="btn">开启隔行变色</button>
+      <button class="btn">开启移入变色</button><br /><br />
+      <table class="table">
+        <thead>
+          <tr>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>年龄</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>张三</td>
+            <td>33</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>李四</td>
+            <td>44</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>王五</td>
+            <td>55</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>赵六</td>
+            <td>66</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Danny</td>
+            <td>33</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+
+  <script>
+    window.onload = function () {
+      var oDiv1 = document.getElementById("div1");
+      var aBtn1 = oDiv1.getElementsByTagName("button"); //获取所有按钮
+      var aTab1 = oDiv1.getElementsByTagName("table")[0]; //获取表格对象
+      //   老方法提取李四单元格 按钮单击事件
+      aBtn1[0].onclick = function () {
+        alert(
+          aTab1
+            .getElementsByTagName("tbody")[0]
+            .getElementsByTagName("tr")[1]
+            .getElementsByTagName("td")[1].innerHTML
+        );
+      };
+      //   新方法提取    按钮单击事件
+      aBtn1[1].onclick = function () {
+        alert(aTab1.tBodies[0].rows[0].cells[1].innerHTML);
+      };
+      //   隔行变色 按钮单击事件
+      aBtn1[2].onclick = function () {
+        var color = "none";
+        if (this.innerHTML == "开启隔行变色") {
+          this.innerHTML = "关闭隔行变色";
+          this.className = "btn";
+          color = "blue";
+        } else if (this.innerHTML == "关闭隔行变色") {
+          this.innerHTML = "开启隔行变色";
+          this.className = "btn";
+          color = "none";
+        }
+        for (var i = 0; i < aTab1.tBodies[0].rows.length; i++) {
+          if (i % 2 == 0) {
+            aTab1.tBodies[0].rows[i].style.background = color;
+          }
+        }
+      };
+      //   移入变色 按钮单击事件
+      aBtn1[3].onclick = function () {
+        var oldColor = "none";
+        if (this.innerHTML == "开启移入变色") {
+          this.className = "btn";
+          this.innerHTML = "关闭移入变色";
+          for (var i = 0; i < aTab1.tBodies[0].rows.length; i++) {
+            aTab1.tBodies[0].rows[i].onmouseover = function () {
+              oldColor = this.style.background;
+              this.style.background = "yellow";
+            };
+            aTab1.tBodies[0].rows[i].onmouseout = function () {
+              this.style.background = oldColor;
+            };
+          }
+        } else if (this.innerHTML == "关闭移入变色") {
+          this.className = "btn";
+          this.innerHTML = "开启移入变色";
+          for (var i = 0; i < aTab1.tBodies[0].rows.length; i++) {
+            aTab1.tBodies[0].rows[i].onmouseover = aTab1.tBodies[0].rows[
+              i
+            ].onmouseout = function () {};
+          }
+        }
+      };
+    };
+  </script>
+</html>

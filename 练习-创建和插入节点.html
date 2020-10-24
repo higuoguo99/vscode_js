@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>创建和插入节点</title>
+  </head>
+  <body>
+    <div id="content">
+      <ul>
+        <li>新闻1</li>
+        <li>新闻2</li>
+        <li>新闻3</li>
+      </ul>
+      <p>
+        <input type="text" name="news" id="news" />
+        <button id="add" onclick="Add();">添加</button>
+        <button id="copy" onclick="Copy();">克隆</button>
+      </p>
+    </div>
+  </body>
+  <script>
+    function Add() {
+      // 获取输入框的值
+      var newsContent = document.getElementById("news").value;
+      // 1.创建一个li元素
+      var liObj = document.createElement("li");
+      liObj.innerHTML = newsContent;
+      //2.将新创建的li元素追加到ul最后，使用appendChild() 方法可向节点的子节点列表的末尾添加新的子节点
+      // 获取ul
+      var ulObj = document.getElementsByTagName("ul")[0];
+      //   ulObj.appendChild(liObj);
+      //3.ulObj.append(liObj);
+      // appendChild()和append()的区别：前者只能传入一个节点，且不能是字符串，有返回值；后者可以同时传入多个节点或字符串，没有返回值；
+      // 4.target.insertBefore(newChild,existingChild)
+      // 参数说明:
+      // 1.target:被添加节点和现有节点的父节点。
+      // 2.newChild:将要被插入的节点。
+      // 3.existingChild:现有的节点，新节点将会被插入到它的前面，此参数值可以为null。
+      //   获取最后一个子节点
+      var last = ulObj.lastElementChild;
+      //   在ul的最后一个子节点之前插入新节点
+      ulObj.insertBefore(liObj, last);
+      //   5.克隆元素cloneNode(deep)
+    }
+    function Copy() {
+      var itm = document.getElementsByTagName("ul")[0];
+      var cln = itm.cloneNode(true);
+      document.getElementById("content").appendChild(cln);
+    }
+  </script>
+</html>

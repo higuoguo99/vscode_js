@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function change() {
+        //获取元素按钮
+        var anniu = document.getElementById("baocun");
+        //按钮单击事件
+        anniu.onclick = function () {
+          // 获取所有li元素
+          var lis = document.getElementsByTagName("li");
+          for (let index = 0; index < lis.length; index++) {
+            // 标准属性值可直接通过使用"对象.属性"的方式来进行值的设置和获取,例如style属性
+            // 使用style属性能够设置css
+            // lis[index].style.backgroundColor = "red";
+            lis[index].style["backgroundColor"] = "red"; //注意这种写法也行
+            // lis[index].style.border = "2px solid yellow";
+            //而非标准属性则要通过setAttribute()和getAttribute()方法来设置
+            //lis[index].setAttribute("index", index);
+            // 样式属性也可以通过setAttribute()来设置
+            //添加样式属性,注意多个样式应书写在一条语句中，否则后面的会替换前面的样式。
+            // 下面这样写有问题：
+            // lis[index].setAttribute("style", "color:red;");
+            // lis[index].setAttribute("style", "background-color: yellow;");
+            // 应该这么写：
+            // lis[index].setAttribute(
+            //   "style",
+            //   "color:red;background-color: yellow;"
+            // );
+          }
+        };
+      }
+    </script>
+  </head>
+  <body onload="change();">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+    <button id="baocun">改变</button>
+  </body>
+</html>

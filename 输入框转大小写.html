@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function ZH(event) {
+        var key = event.keyCode;
+        if (key == 13) {
+          //判断按下的键是否是回车键，回车键值为13
+          //转换为大写
+          var zhi = document.getElementById("xingming").value;
+          document.getElementById("xingming").value = zhi.toUpperCase();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" name="xingming" id="xingming" onkeydown="ZH(event);" />
+  </body>
+</html>

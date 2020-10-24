@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM文档对象模型</title>
+  </head>
+  <body>
+    <h1>DOM的结构</h1>
+    <div id="content">
+      <!-- 注释 -->
+      <p><a href="www.baidu.com">百度</a></p>
+      <p><a href="www.sina.com.cn">新浪</a></p>
+      <p><a href="www.tencent.com">腾讯</a></p>
+    </div>
+  </body>
+  <script>
+    //   获取div
+    var contentObj = document.getElementById("content");
+    // 1.使用childNodes属性：获取contentObj对象的所有子节点:一共7个，4个文本节点，3个p节点
+    var pObjs = contentObj.childNodes;
+    console.log(pObjs);
+    // 2.使用children属性获取contentObj对象的所有元素子节点:一共3个，3个p节点
+    var pchilds = contentObj.children;
+    console.log(pchilds);
+    // 使用children属性得到的是子元素集合，可以使用序列号(index，起始值为0)访问每个子元素。
+    // 说明：children 属性与 childNodes 属性的差别：
+    // childNodes 属性返回所有的节点，包括文本节点、注释节点；
+    // children 属性只返回元素节点；
+    // 3.使用firstChild,返回节点的第一个子节点
+    var one = contentObj.firstChild;
+    console.log(one);
+    // 4.使用lastChild返回节点的最后一个子节点
+    var last1 = contentObj.lastChild;
+    // 5.使用lastElementChild返回节点的最后一个元素子节点
+    var last2 = contentObj.lastElementChild;
+    console.log(last1);
+    //6.使用nextSibling返回下一个节点
+    var next1 = pchilds[0].nextSibling;
+    console.log(next1);
+    //7.使用nextElementSibling返回下一个元素节点
+    var next2 = pchilds[0].nextElementSibling;
+    console.log(next2);
+    //8.使用previousSibling返回上一个节点
+    var pre1 = last2.previousSibling;
+    console.log(pre1);
+    //9.previousElementSibling返回上一个元素节点
+    var pre2 = last2.previousElementSibling;
+    console.log(pre2);
+    // 获取div的父节点
+    var divParent = contentObj.parentNode;
+    console.log(divParent);
+  </script>
+</html>

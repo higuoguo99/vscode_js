@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 定义一个标准JSON格式字符串
+        var objStr='{"name":"lucy","age":20}';
+        // 定义一个非标准JSON格式字符串
+        var objStr1="{'name':'lucy','age':20}";
+        // 1.使用eval()解析
+        var eObj=eval("("+objStr+")");
+        var eObj1=eval("("+objStr1+")");
+        console.log("eval()解析objStr，结果为：",eObj);
+        console.log("eval()解析objStr1，结果为：",eObj1);
+        // 2.Function解析()
+        var fObj=Function("return "+objStr)();
+        var fObj1=Function("return "+objStr1)();
+        console.log("Function()解析objStr，结果为：",fObj);
+        console.log("Function()解析objStr1，结果为：",fObj1);
+        // 3.使用JSON.parse()解析
+        var jObj=JSON.parse(objStr);
+        console.log("JSON.parse解析objStr，结果为：",jObj);
+        var jObj1=JSON.parse(objStr1);
+        console.log("JSON.parse解析objStr1，结果为：",jObj1);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

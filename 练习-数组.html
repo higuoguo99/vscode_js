@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组输出练习</title>
+  </head>
+  <body>
+    <div id="box">
+      <div class="box">
+        已知数组内容：1、这是第一句，2、这是第二句，3、这是第三句，4、这是第四句。<br /><br />
+        <button type="submit">提取1</button>
+        <button type="submit">提取2</button>
+        <button type="submit">提取3</button>
+        <button type="submit">提取4</button>
+        <button type="submit" id="button3">全部弹出提取</button>
+      </div>
+      <div id="content">
+        提取后在这里显示：<span class="text-danger"
+          >请点击上面的4各按钮输入</span
+        >
+      </div>
+    </div>
+  </body>
+  <script>
+    //   获取4个按钮
+    var aBtn = document.getElementById("box").getElementsByTagName("button");
+    var aArr = ["这是第一句", "这是第二句", "这是第三句", "这是第四句"];
+    //获取显示内容区域DIV
+    var oTxt = document
+      .getElementById("content")
+      .getElementsByTagName("span")[0];
+    var i = 0;
+    while (i < aBtn.length) {
+      aBtn[i].index = i;
+      //   为4个按钮添加单击事件
+      aBtn[i].onclick = function () {
+        oTxt.innerHTML = aArr[this.index];
+      };
+      aBtn[4].onclick = function () {
+        for (var i = 0; i < aBtn.length - 1; i++) {
+          alert(aArr[i]);
+        }
+      };
+      i++;
+    }
+  </script>
+</html>
