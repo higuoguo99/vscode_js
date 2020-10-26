@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表格应用：添加、删除</title>
+    <style>
+      .table {
+        margin-bottom: 0;
+      }
+      #div2 table thead tr {
+        background: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div2" class="box">
+      姓名：<input type="text" placeholder="必填" /> 年龄：<input
+        type="text"
+        placeholder="必填"
+      />
+      <button class="btn">添加</button><br /><br />
+      <table class="table">
+        <thead>
+          <tr>
+            <td style="width: 80px">ID</td>
+            <td style="width: 200px">姓名</td>
+            <td>年龄</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>张三</td>
+            <td>33</td>
+            <td><a href="javascrapt:;">删除</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>李四</td>
+            <td>44</td>
+            <td><a href="javascrapt:;">删除</a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>王五</td>
+            <td>55</td>
+            <td><a href="javascrapt:;">删除</a></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>赵六</td>
+            <td>66</td>
+            <td><a href="javascrapt:;">删除</a></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Danny</td>
+            <td>33</td>
+            <td><a href="javascrapt:;">删除</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+
+  <script>
+    window.onload = function () {
+      var oDiv2 = document.getElementById("div2");
+      var aIpt2 = oDiv2.getElementsByTagName("input"); //获取所有输入框
+      var aBtn2 = oDiv2.getElementsByTagName("button")[0]; //添加按钮
+      var aTab2 = oDiv2.getElementsByTagName("table")[0]; //表格
+      var oId2 = aTab2.tBodies[0].rows.length + 1; //表格主体内容行数+1，1代表表头
+      for (var i = 0; i < aTab2.tBodies[0].rows.length; i++) {
+        // 获取表格主体中每行的最后一个单元格中的第一个a标签，即删除超链接，为其添加单击事件
+        aTab2.tBodies[0].rows[i].cells[3].getElementsByTagName(
+          "a"
+        )[0].onclick = function () {
+          aTab2.tBodies[0].removeChild(this.parentNode.parentNode);
+        };
+      }
+      aBtn2.onclick = function () {
+        var oName = aIpt2[0].value;
+        var oSage = aIpt2[1].value;
+        var oDele = '<a href="javascript:;">删除</a>';
+        if (oName == "" || oSage == "" || !isNaN(oName) || isNaN(oSage)) {
+          alert("必须输入内容，且名字不能为数字");
+        } else {
+          // 创建行元素
+          var oTr = document.createElement("tr");
+          // 创建元素：ID单元格
+          var oTd = document.createElement("td");
+          oTd.innerHTML = oId2++; //
+          oTr.appendChild(oTd);
+          // 创建元素：姓名单元格
+          var oTd = document.createElement("td");
+          oTd.innerHTML = oName;
+          oTr.appendChild(oTd);
+          // 创建元素：年龄单元格
+          var oTd = document.createElement("td");
+          oTd.innerHTML = oSage;
+          oTr.appendChild(oTd);
+          // 创建元素：删除单元格
+          var oTd = document.createElement("td");
+          oTd.innerHTML = oDele;
+          oTr.appendChild(oTd);
+          // 为当前删除单元格添加单击事件
+          oTd.getElementsByTagName("a")[0].onclick = function () {
+            aTab2.tBodies[0].removeChild(this.parentNode.parentNode);
+          };
+          // 添加当前行到表格主体元素中
+          aTab2.tBodies[0].appendChild(oTr);
+        }
+      };
+    };
+  </script>
+</html>

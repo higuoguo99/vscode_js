@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1、DOM方式操作元素属性</title>
+</head>
+<body>
+    <input type="text" name="test" id="test" value="还没修改" index="1">
+    <p>
+      <button>修改输入框内容</button>
+      <button>读取输入框内容</button>
+      <button>移除输入框内容</button>
+    </p>
+</body>
+<script>
+    var kuang=document.getElementById("test");
+    var btns=document.getElementsByTagName("button");
+    btns[0].onclick=function()
+        {
+            // 修改输入框内容
+            kuang.value="已经修改输入框内容";
+
+        }
+        btns[1].onclick=function()
+        {
+            // 修改输入框内容
+          alert( kuang.getAttribute("value")); 
+          alert( kuang.value); 
+          alert( kuang.getAttribute("index"));
+
+        }
+    
+        btns[2].onclick=function()
+        {
+            // 修改输入框内容
+            // kuang.removeAttribute("value")
+kuang.removeAttribute("index");
+        }
+    
+    
+</script>
+</html>

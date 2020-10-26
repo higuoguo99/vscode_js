@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM节点 父节点</title>
+    <style>
+        *{
+            list-style: none;
+        }
+    </style>
+  </head>
+  <body>
+    <p>
+      <button class="btn">查看隐藏的父节点</button>
+      <button class="btn">显示被隐藏的父节点</button>
+    </p>
+    <ul>
+      <li>子节点1<a href="#">隐藏</a></li>
+      <li>子节点2<a href="#">隐藏</a></li>
+      <li>子节点3<a href="#">隐藏</a></li>
+      <li>子节点4<a href="#">隐藏</a></li>
+      <li>子节点5<a href="#">隐藏</a></li>
+    </ul>
+  </body>
+  <script>
+    // 2.DOM节点 父节点
+    var aObjs = document.getElementsByTagName("a");
+    for (let i = 0; i < aObjs.length; i++) {
+      const element = aObjs[i];
+      element.onclick = function () {
+        element.parentNode.style.display = "none";
+      };
+    }
+    // 获取所有按钮
+    var btns = document.getElementsByClassName("btn");
+    btns[0].onclick = function () {
+      // 查看隐藏的节点
+      var liObjs = document.getElementsByTagName("li");
+      for (let i = 0; i < liObjs.length; i++) {
+        const element = liObjs[i];
+        // 当前元素的display为none，表示元素隐藏
+        if (element.style.display == "none") {
+          console.log(element);
+        }
+      }
+    };
+
+    btns[1].onclick = function () {
+      // 显示被隐藏的父节点
+      var liObjs = document.getElementsByTagName("li");
+      for (let i = 0; i < liObjs.length; i++) {
+        const element = liObjs[i];
+        // 当前元素的display为none，表示元素隐藏
+        if (element.style.display == "none") {
+        //  修改当前元素的display值
+        element.style.display="block";
+        }
+      }
+    };
+  </script>
+</html>

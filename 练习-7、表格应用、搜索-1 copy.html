@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格搜索：基础版本-字符串比较</title>
+</head>
+<body>
+    <div id="div2" class="box">
+        姓名：<input type="text" placeholder="必填" id="xingming" /> 
+        <button class="btn">逐行搜索</button><br /><br />
+        <table class="table">
+          <thead>
+            <tr>
+              <td style="width: 80px">ID</td>
+              <td style="width: 200px">姓名</td>
+              <td>年龄</td>
+              <td>操作</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>张三</td>
+              <td>33</td>
+              <td><a href="javascrapt:;">删除</a></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>李四</td>
+              <td>44</td>
+              <td><a href="javascrapt:;">删除</a></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>王五</td>
+              <td>55</td>
+              <td><a href="javascrapt:;">删除</a></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>赵六</td>
+              <td>66</td>
+              <td><a href="javascrapt:;">删除</a></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Danny</td>
+              <td>33</td>
+              <td><a href="javascrapt:;">删除</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</body>
+<script>
+    // 按钮
+    var btn=document.getElementsByTagName("button")[0];
+    btn.onclick=function(){
+    // 获取文本框的值
+    var zhi=document.getElementById("xingming").value;
+    // 获取所有表格行对象集合
+    var rows=document.getElementsByTagName("table")[0].tBodies[0].rows;
+    for (let i = 0; i < rows.length; i++) {
+        // console.log(rows[i].cells[1].innerHTML);
+        // 遍历行集合，将文本框的值与每行的第1列值进行对比
+        if (rows[i].cells[1].innerHTML==zhi) {
+            rows[i].style.backgroundColor="yellow";
+        }
+        
+    }
+}
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>创建元素</title>
+  </head>
+  <body>
+    <ul></ul>
+    <button onclick="Create();">创建li</button>
+    <script>
+      var ulObj = document.getElementsByTagName("ul")[0];
+      var i=0;
+      function Create() {
+          //创建li
+          var newLi=document.createElement("li");
+          newLi.innerHTML="创建成功，这是第"+i+"个li。"
+          ulObj.appendChild(newLi);
+          i++;
+      }
+    </script>
+  </body>
+</html>

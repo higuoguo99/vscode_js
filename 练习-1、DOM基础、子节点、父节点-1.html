@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+    <li>子节点1</li>
+    <li>子节点2</li>
+</ul>
+<p>
+    <button class="btn">子节点个数</button>
+    <button  class="btn">判断节点类型</button>
+    <button  class="btn">操作子节点</button>
+</p>
+</body>
+<script>
+    // 1.DOM节点、子节点
+    var ulObj=document.getElementsByTagName("ul")[0];
+   var btns= document.getElementsByClassName("btn");
+   btns[0].onclick=function(){
+    alert(ulObj.childNodes.length);
+   }
+   btns[1].onclick=function(){
+    for (let i = 0; i < ulObj.childNodes.length; i++) {
+        const element = ulObj.childNodes[i];
+        if (element.nodeType==3) {
+            alert("索引为"+i+"的节点类型是文本节点");
+        }
+        if (element.nodeType==1) {
+            alert("索引为"+i+"的节点类型是元素节点");
+           
+        }
+    }
+   }
+   btns[2].onclick=function(){
+    for (let i = 0; i < ulObj.childNodes.length; i++) {
+        const element = ulObj.childNodes[i];
+       
+        if (element.nodeType==1) {
+           
+            // 修改class
+            ulObj.childNodes[i].style.backgroundColor="red";
+        }
+    }
+   }
+    
+</script>
+</html>

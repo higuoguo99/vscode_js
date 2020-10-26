@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移动li 从黄色区域移动到红色区域</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+      }
+      #top {
+        padding: 20px;
+        width: 440px;
+      }
+      #top ul li,
+      #bottom ul li {
+        width: 400px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+      #bottom {
+        padding: 20px;
+        width: 440px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>移动Li</button>
+    <div id="top" style="background: yellow">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+    <div id="bottom" style="background: red">
+      <ul></ul>
+    </div>
+  </body>
+  <script>
+    var btn = document.getElementsByTagName("button")[0];
+    var topUl = document.getElementById("top").firstElementChild;
+    var bottomUl = document.getElementById("bottom").firstElementChild;
+    btn.onclick = function () {
+      // 获取上面ul的第一个子元素节点
+      var one = topUl.firstElementChild;
+      if (one != null) {
+        console.log(one);
+        bottomUl.appendChild(one);
+      }
+    };
+  </script>
+</html>

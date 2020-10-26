@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1、DOM方式操作元素属性</title>
+</head>
+<body>
+<ul>
+    <li>无</li>
+    <li class="you">class</li>
+    <li>无</li>
+    <li class="you">class</li>
+    <li class="you">class</li>
+</ul>
+    <p>
+      <button>修改指定class的背景颜色</button>
+      <button>修改指定class的背景颜色</button>
+    </p>
+</body>
+<script>
+    var all=document.getElementsByClassName("you");//已封装
+   var  btns=document.getElementsByTagName("button");
+    btns[0].onclick=function()
+        {
+            for (let i = 0; i < all.length; i++) {
+                const element = all[i];
+                element.style.backgroundColor="red";
+            }
+            
+        }
+        // 未封装
+        var lis=document.getElementsByTagName("li")
+        btns[1].onclick=function()
+        {
+            for (let i = 0; i < lis.length; i++) {
+                const element = lis[i];
+             if(element.className=="you"){
+                element.style.backgroundColor="yellow";
+             }
+            }
+            
+        } 
+    
+    
+</script>
+</html>

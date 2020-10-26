@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM节点 兄弟节点</title>
+</head>
+<body>
+    <ul>
+        <li>子节点1首节点</li>
+        <li>子节点2</li>
+        <li>子节点2尾节点</li>
+    </ul>
+    <p>
+        <button>查看子节点2前兄弟节点</button>
+        <button>查看子节点2后兄弟节点</button>
+        
+    </p>
+</body>
+<script>
+    // 2、DOM节点 兄弟节点
+    var liObj=document.getElementsByTagName("li");
+    var btns=document.getElementsByTagName("button");
+    // 查看子节点2前兄弟节点
+    btns[0].onclick=function()
+    {
+     alert(liObj[1].previousElementSibling.innerHTML);   
+      
+    }
+      // 查看子节点2后兄弟节点
+      btns[1].onclick=function()
+    {
+     alert(liObj[1].nextElementSibling.innerHTML);   
+      
+    }
+</script>
+</html>
