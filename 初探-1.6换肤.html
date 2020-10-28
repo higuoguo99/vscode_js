@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页换肤</title>
+    <link id="pifu" rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button>样式1</button>
+    <button>样式2</button>
+</body>
+<script>
+    var btns=document.getElementsByTagName("button");
+    btns[0].onclick=function()
+    {
+        document.getElementById("pifu").href="shink1.css";
+    }
+    btns[1].onclick=function()
+    {
+        document.getElementById("pifu").href="shink2.css";
+    }
+</script>
+</html>

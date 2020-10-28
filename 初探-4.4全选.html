@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="inputbox">
+        <input type="checkbox" /><input type="checkbox" /><input type="checkbox" /><input type="checkbox" /><input type="checkbox" /><input type="checkbox" />
+    </p>
+    <p>
+        <button id="btn_quan" type="button">全选</button> 
+        <button id="btn_fan" type="button">反选</button> 
+        <button id="btn_bu" type="button">不选</button>
+    </p>
+</div>
+
+</body>
+<script>
+    var aBtn4=document.getElementById('btn_quan');//全选按钮
+	var aIpt4=document.getElementById('inputbox').getElementsByTagName('input');//所有复选框
+    // 全选单击事件
+	aBtn4.onclick=function ()
+	{
+		var i=0;
+		while(i<aIpt4.length)
+		{
+			aIpt4[i].checked=true;
+			i=i+1;
+		}
+	}
+    
+	var aBtn5=document.getElementById('btn_fan');//反选按钮
+    // 反选单击事件，针对目前选择的状态设置其相反的状态
+	aBtn5.onclick=function ()
+	{
+		var i=0;
+		while(i<aIpt4.length)
+		{
+			if(aIpt4[i].checked==true)
+			{
+				aIpt4[i].checked=false;
+			}
+			else
+			{
+				aIpt4[i].checked=true;
+			}
+			i=i+1;
+		}
+	}
+	var aBtn6=document.getElementById('btn_bu');//不选按钮
+    // 不选单击事件
+	aBtn6.onclick=function ()
+	{
+		for(var i=0;i<aIpt4.length;i++)
+		{
+			aIpt4[i].checked=false;
+		}
+	}
+</script>
+</html>

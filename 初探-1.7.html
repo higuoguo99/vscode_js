@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示隐藏</title>
+</head>
+<body>
+    <button>显示隐藏</button>
+    <button id="bottom" style="display:none;">显示隐藏</button>
+</body>
+<script>
+document.getElementsByTagName("button")[0].onclick=function(){
+  
+    if (document.getElementById("bottom").style.display=="block") {
+      
+        document.getElementById("bottom").style.display="none";
+    }
+    else{
+       
+        document.getElementById("bottom").style.display="block";
+    }
+}
+</script>
+</html>

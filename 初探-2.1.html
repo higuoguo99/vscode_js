@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <button>背景变黄</button>
+      <button>背景变红</button>
+      <button>背景变黑</button>
+      <button>恢复原样</button>
+    </div>
+  </body>
+  <script>
+    function ChangeColor(color) {
+        document.getElementById("box").style.backgroundColor=color;
+    }
+    var btns=document.getElementsByTagName("button");
+    btns[0].onclick=function(){
+        ChangeColor("yellow");
+    }
+    btns[1].onclick=function(){
+        ChangeColor("red");
+    }
+    btns[2].onclick=function(){
+        ChangeColor("black");
+    }
+    btns[3].onclick=function(){
+        ChangeColor("white");
+    }
+  </script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选项卡-鼠标经过变换</title>
+    <style>
+      * {
+        font-size: 14px;
+        font-family: Arial, "微软雅黑";
+        margin: 0px;
+        padding: 0px;
+      }
+      #div1 > div,
+      #div2 > div,
+      #div3 > div {
+        display: none;
+        padding: 0px 0px 0px 40px;
+        margin: 0px;
+      }
+      .box .btn {
+        border: 0;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 0;
+      }
+      /* 按钮默认样式 */
+      .box .btn-success {
+        background-color: #71c7e1;
+      }
+      .box .btn-current {
+        background-color: #efefef;
+      }
+      .box .alert-success {
+        background-color: #d9edf7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1" class="box box-re">
+      <button type="button" class="btn btn-current">栏目一</button>
+      <button type="button" class="btn btn-success">栏目二</button>
+      <button type="button" class="btn btn-success">栏目三</button>
+      <button type="button" class="btn btn-success">栏目四</button>
+      <div class="alert-info" style="display: block">
+        <p>栏目一的内容</p>
+        <p>栏目一的内容</p>
+        <p>栏目一的内容</p>
+        <p>栏目一的内容</p>
+      </div>
+      <div class="alert-info">
+        <p>栏目二的内容</p>
+        <p>栏目二的内容</p>
+        <p>栏目二的内容</p>
+        <p>栏目二的内容</p>
+      </div>
+      <div class="alert-info">
+        <p>栏目三的内容</p>
+        <p>栏目三的内容</p>
+        <p>栏目三的内容</p>
+        <p>栏目三的内容</p>
+      </div>
+      <div class="alert-info">
+        <p>栏目四的内容</p>
+        <p>栏目四的内容</p>
+        <p>栏目四的内容</p>
+        <p>栏目四的内容</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 获取DIV外盒子
+    var oDiv1 = document.getElementById("div1");
+    // 获取所有按钮
+    var aBtn1 = oDiv1.getElementsByTagName("button");
+    // 获取所有内容DIV
+    var aDiv1 = oDiv1.getElementsByTagName("div");
+    for (var i = 0; i < aBtn1.length; i++) {
+      // 要知道是第几个的时候通过自定义的index属性（标签）定义当前激活的div
+      aBtn1[i].index = i;
+      aBtn1[i].onmouseover = function () {
+        for (var i = 0; i < aBtn1.length; i++) {
+          // 设置所有按钮为默认样式
+          aBtn1[i].className = "btn btn-success";
+          // 设置所有内容DIV隐藏
+          aDiv1[i].style.display = "none";
+        }
+        // 为当前点击的按钮设置当前样式
+        this.className = "btn btn-current";
+        // 显示当前索引下的DIV块显示
+        aDiv1[this.index].style.display = "block";
+      };
+    }
+  </script>
+</html>

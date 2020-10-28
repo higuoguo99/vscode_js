@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 300px;
+            background-color: antiquewhite;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <button>背景变窄</button>
+      <button>背景变黄</button>
+      <button>背景变高</button>
+      <button>恢复原样</button>
+    </div>
+  </body>
+  <script>
+    // name表示样式属性名 ,value表示属性值
+    function Change(name,value) {
+        document.getElementById("box").style[name]=value;
+    }
+    var btns=document.getElementsByTagName("button");
+    btns[0].onclick=function(){
+         Change("width","300px");
+    }
+    btns[1].onclick=function(){
+      Change("backgroundColor","red");
+    }
+    btns[2].onclick=function(){
+      Change("height","500px");
+    }
+    btns[3].onclick=function(){
+      document.getElementById("box").className="";
+    }
+  </script>
+</html>
