@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
+    <input type="button" value="设置样式" onclick="setStyle()" />
+    <h1>静夜思</h1>
+    <div id="box">
+      <h3>静夜思</h3>
+      <p class="c1">床前明月光，</p>
+      <p>疑是地上霜。</p>
+      <p class="c1">抬头望明月，</p>
+      <p>低头思故乡。</p>
+      <div>这是一个DIV</div>
+      <div>
+        <h3>登鹳雀楼</h3>
+        <p class="c2">白日依山尽，</p>
+        <p class="m22c">黄河入海流。</p>
+        <p class="c2">欲穷千里目，</p>
+        <p class="cm1">更上一层楼。</p>
+      </div>
+    </div>
+    <span>这是一个SPAN</span>
+  </body>
+  <script>
+    console.log($("#box p")); //8个p
+    console.log($("#box>p")); //4个p
+    console.log($("h3+p")); //2个p
+    console.log($("h3~p")); //8个p
+    console.log($("#box>h3~p")); //4个p
+    console.log($("p[class='c2']")); //class等于c2的p元素
+    console.log($("p[class!='c2']")); //class不等于c2的p元素
+    console.log($("p[class^='c']")); //class属性值以c开头的元素
+
+    console.log($("p[class*='c']")); //class属性值包含c的元素
+  </script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+       
+            $(function(){
+                $("#btn").click(function(){
+                //:first 集合元素中的索引为第一个的元素
+                //$("ul li:first").css("color","red");
+                //:last 最后一个元素
+                //$("ul li:last").css("color","red");
+                //:not(selector) 排除某个元素
+                //$("ul li:not(.l2)").css("color","red");
+                //:even 偶数
+                //$("ul li:even").css("color","red");
+                //:odd 奇数
+                //$("ul li:odd").css("color","red");
+                //eq(index) :等于某个索引
+                //$("ul li:eq(3)").css("color","red");
+                //gt(index) : 大于某个索引
+                //$("ul li:gt(3)").css("color","red");
+                //lt(index):小于某个索引
+                $("ul li:lt(3)").css("color","red");
+            })
+            });
+                 </script>
+  
+  </head>
+  <body>
+    <input type="button" value="测试" id="btn" />
+    <hr />
+    <ul>
+      <li>这是第1个元素</li>
+      <li class="l2">这是第2个元素</li>
+      <li>这是第3个元素</li>
+      <li>这是第4个元素</li>
+      <li>这是第5个元素</li>
+      <li>这是第6个元素</li>
+      <li>这是第7个元素</li>
+      <li>这是第8个元素</li>
+      <li>这是第9个元素</li>
+      <li>这是第10个元素</li>
+    </ul>
+  </body>
+</html>

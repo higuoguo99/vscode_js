@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $("#btn").click(function () {
+          //:input   获取所有的表单元素
+          var count = $(":input").size();
+          //alert(count);//:text   获取表单中所有的文本框
+          var count = $(":text").size(); //F
+          alert(count); //:checkbox 获取表单中所有的复选框
+          var count = $(":checkbox").size(); 
+         //alert(count);
+          //:checked 获取处于选中状态的表单元素
+          var count = $(":checked").size(); 
+         // alert(count); 
+         //:selected 获取下拉框处于选中状态的元素
+          var count = $(":selected").size(); 
+         // alert(count);
+          alert($(":selected").html());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="button" value="测试" id="btn" />
+    <hr />
+    <form>
+      姓名:<input type="text" name="xm" /><br />密码:<input
+        type="password"
+        name="pdw"
+      /><br />性别:<input
+        type="radio"
+        name="sex"
+        value="男"
+        checked="checked"
+      />男 <input type="radio" name="sex" value="女" />女 <br />爱好:<input
+        type="checkbox"
+        name="hobby"
+        value="打球"
+      />打球
+      <input type="checkbox" name="hobby" value="唱歌" checked="checked" />唱歌
+      <input type="checkbox" name="hobby" value="摄影" checked="checked" />摄影
+      <br />省份:<select name="province">
+        <option value="">请选择</option>
+        <option value="河南">河南</option>
+        <option value="河北" selected="selected">河北</option>
+        <option value="山东">山东</option>
+      </select>
+    </form>
+  </body>
+</html>

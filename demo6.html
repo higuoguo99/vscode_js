@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        function setStyle() {
+            var count=$(".c1").length;
+            console.log(count);
+            $(".c1").css("color","red");
+            $(".c1").css({"color":"red","border":"1px solid green"});
+            var pOjb= $(".c1").get(0);
+            console.log(pOjb);
+            $(".c1").each(function (i,element) {
+                console.log($(element).html());
+                $(this).attr("index",i);
+            });
+        }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="设置样式" onclick="setStyle()" />
+    <h1>静夜思</h1>
+    <p class="c1">床前明月光，</p>
+    <p>疑是地上霜。</p>
+    <p class="c1">抬头望明月，</p>
+    <p>低头思故乡。</p>
+    <div>这是一个DIV</div>
+    <span>这是一个SPAN</span>
+  </body>
+</html>
