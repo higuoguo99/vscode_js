@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+  </head>
+
+  <!-- 子组件向父组件传值，本质是借助父组件向子组件传递方法的过程实现的，参考08 -->
+
+  <body>
+    <div id="app">
+        <h1>这是父容器</h1>
+      <!-- 步骤1：父组件向子组件传递方法，使用的是通过事件绑定(v-on)机制，当我们自定义了一个事件属性之后，那么子组件就能够某些方式来调用传递进去的这个方法了。 -->
+      <com2 v-on:func="show"></com2>
+    <h3 v-if="datamsgFromSon!=null">  父组件的数据datamsgFromSon:姓名---{{datamsgFromSon.name}},年龄---{{datamsgFromSon.age}}</h3>
+    </div>
+    <template id="temp1">
+      <div>
+        <h1>这是子组件</h1>
+        <input
+          type="button"
+          value="这是子组件中的按钮-点击它，触发父组件传递过来的数据"
+          @click="myclick"
+        />
+      </div>
+    </template>
+    <script>
+      //定义了一个组件模板对象
+
+      //创建Vue实例，得到ViewModel,把vue实例看成是一个大组件
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          datamsgFromSon: null,
+        },
+        methods: {
+          show(shuju) {
+            //可传参，可不传参
+            // 子组件通过触发父组件的方法，获取子组件中的数据shuju，并赋值给父组件datamsgFromSon
+            (this.datamsgFromSon = shuju),
+              console.log(this.datamsgFromSon.name);
+          },
+        },
+        components: {
+          com2: {
+            template: "#temp1", //通过指定了一个Id,表示，要去加载这个指定ID的template元素中的内容，当作组件的HTML结构
+            data() {
+              //子组件中的数据
+              return {
+                sonmsg: {
+                  name: "啊花",
+                  age: 16,
+                },
+              };
+            },
+            methods: {
+              myclick() {
+                //当点击子组件的而按钮的时候，如何拿到父组件传递过来的func方法，并调用这个方法呢？
+                //emit英文原意：触发，调用的意思
+                //步骤2：通过 this.$emit触发父组件传递过来的func方法
+                this.$emit("func", this.sonmsg);
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

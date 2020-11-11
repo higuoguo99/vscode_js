@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>商品信息管理系统</title>
+    <link rel="stylesheet" href="css/demo.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="form-group">
+        <label>查询关键字:</label>
+        <input type="text" v-model="key" placeholder="请输入查询关键字...." />
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th>价格</th>
+            <th>类别</th>
+            <th>删除</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(prod,index) in findProdList">
+            <td>{{ prod.name }}</td>
+            <td>{{ prod.price | priceFormat }}</td>
+            <td>{{ prod.category }}</td>
+            <td class="'text-center'">
+              <button @click="deleteProd(index)">删除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        key: "",
+        newProduct: {
+          name: "",
+          price: 0,
+          category: "手机/数码",
+        },
+        categories: [
+          "手机/数码",
+          "电脑/办公",
+          "家居/家具",
+          "男装/女装",
+          "房产/汽车",
+        ],
+        products: [
+          {
+            name: "XPhone 10",
+            price: 4999,
+            category: "手机/数码",
+          },
+          {
+            name: "男士卫衣",
+            price: 100,
+            category: "男装/女装",
+          },
+        ],
+      },
+      // 局部过滤器
+      filters: {
+        priceFormat: function (val) {
+          return "￥" + parseInt(val).toFixed(2) + "元";
+        },
+      },
+      methods: {
+        deleteProd: function (index) {
+          if (confirm("删除当前商品信息吗？")) {
+            // 删一个数组元素
+            this.products.splice(index, 1); //参数1代表数组下标，第一个下标为0。参数2代表删除的长度
+          }
+        },
+      },
+      computed: {
+        //方法一：
+        // findProdList: function() {
+        //         var _this = this;
+        //         return _this.products.filter(function(prod) {
+        //             return prod.name.indexOf(_this.key) != -1;
+        //         });
+        //     }
+        //方法二：
+        findProdList: function () {
+          var _this = this;
+          return _this.products.filter((item) => {
+            if (item.name.includes(_this.key)) {
+              return item;
+            }
+          });
+        },
+      },
+      // gosto
+      // function add(params) {
+      //     console.log(1);
+      // }
+      // params=>{console.log(1);}
+    });
+  </script>
+</html>

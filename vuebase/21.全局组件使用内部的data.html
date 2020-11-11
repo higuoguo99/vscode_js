@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <template id="biaoge">      
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th width="10%">编号</th>
+                        <th width="30%">作者</th>
+                        <th width="40%">内容</th>
+                        <th width="20%">备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="data in lists">
+                        <td v-text="data.num"></td>
+                        <td v-text="data.author"></td>
+                        <td v-text="data.contents"></td>
+                        <td v-text="data.remark"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <div class="pull-left">
+                                <button class="btn btn-default" >刷新</button>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tfoot>
+        </table>
+    
+    </template>
+    <div id="app">
+        <zujianname ></zujianname>
+    </div>
+
+    <script>
+            Vue.component('zujianname',{
+                data () {
+                return {
+                    lists: [
+                        {num: 1, author: '谭浩强', contents: 'C++基础', remark: 'dsds'},
+                        {num: 2, author: '王欣', contents: 'PS', remark: 'dsds'},
+                        {num: 3, author: '赵云', contents: 'C#', remark: 'dsds'},
+                        {num: 4, author: '马云', contents: 'HTML5', remark: 'dsds'},
+                        {num: 5, author: '刘备', contents: 'JAVA', remark: 'dsds'},
+                        {num: 6, author: '张飞', contents: 'ASP.NET', remark: 'dsds'},
+                        {num: 7, author: '小巧', contents: 'ABC', remark: 'dsds'},
+                        {num: 8, author: '周瑜', contents: '赤壁之战', remark: 'dsds'}
+                    ], // 表格原始数据，使用服务器数据时无需使用
+                   
+                }
+            },
+            template:"#biaoge",
+            
+        })
+    //创建Vue实例，得到ViewModel
+        var vm=new Vue({
+           el:'#app',
+           data:{
+           },
+           methods:{}
+        });
+    </script>
+</body>
+
+</html>
