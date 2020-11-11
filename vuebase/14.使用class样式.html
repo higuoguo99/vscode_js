@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 在Vue中使用类样式
+    1、使用数组
+    2、数组中使用三元表达式
+    3、数组中嵌套对象
+    4、直接使用对象 -->
+    <script src="./lib/vue.min.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .thin {
+            font-weight: 200;
+        }
+        
+        .italic {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 原语法 -->
+        <!-- <h1 style="color:red;"></h1> -->
+        <h1 class="red thin">这是一个很大很大的H1</h1>
+        <!-- 第一种方式,直接传递一个数组，注意类名必须使用单引号包裹起来 -->
+        <h1 v-bind:class="['red','thin']">这是一个很大很大的H1</h1>
+        <!-- 第二种方式,在数组中使用三元表达式，注意类名必须使用单引号包裹起来，而变量不需要使用单引号包裹。 -->
+        <h1 :class="['red',flag?'italic':'']">这是一个H1</h1>
+        <!-- 第三种方式：在数组中使用对象来代替三元表达式，提高代码的可读性 ,-->
+        <h1 :class="['red',{'italic':flag}]">这是一个H1</h1>
+        <!-- 类样式名可以有多个，通过绑定数据为true或false来控制样式是否应用到元素中 -->
+
+        <!-- 第四种方式： 在为class使用v-bind绑定对象的时候，对象的属性是类名，注意：对象的属性可带引号，也可不用带引号，属性值是一个标识符-->
+        <h1 :class="classObj">这是使用对象应用的H1</h1>
+        <!-- 绑定内联样式 -->
+        <h1 v-bind:style="{color:'red'}">这是内联样式</h1>
+
+    </div>
+
+    <script>
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false, //标志
+                red: true,
+                //添加对象
+                classObj: {
+                    red: true,
+                    italic: false,
+                    thin: true
+
+                }
+
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

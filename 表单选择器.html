@@ -9,19 +9,20 @@
       $(function () {
         $("#btn").click(function () {
           //:input   获取所有的表单元素
-          var count = $(":input").size();
+          var count = $(":input").length;
           //alert(count);//:text   获取表单中所有的文本框
-          var count = $(":text").size(); //F
+          var count = $(":text").length; //F
           alert(count); //:checkbox 获取表单中所有的复选框
-          var count = $(":checkbox").size(); 
+          var count = $(":checkbox").length; 
          //alert(count);
           //:checked 获取处于选中状态的表单元素
-          var count = $(":checked").size(); 
+          var count = $(":checked").length; 
          // alert(count); 
          //:selected 获取下拉框处于选中状态的元素
-          var count = $(":selected").size(); 
+          var count = $(":selected").length; 
          // alert(count);
           alert($(":selected").html());
+          $("#prov").empty();
         });
       });
     </script>
@@ -45,7 +46,8 @@
       />打球
       <input type="checkbox" name="hobby" value="唱歌" checked="checked" />唱歌
       <input type="checkbox" name="hobby" value="摄影" checked="checked" />摄影
-      <br />省份:<select name="province">
+      <br />
+      省份:<select name="province" id="prov">
         <option value="">请选择</option>
         <option value="河南">河南</option>
         <option value="河北" selected="selected">河北</option>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .test{
+            color: red;
+            border: 1px solid green;
+            background-color: rgb(3, 3, 3);
+        }
+    </style>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        $(function()
+        {
+            console.log($(":text"));
+            console.log($(":password"));
+            console.log($(":button"));
+            console.log($(":radio"));
+            console.log($(":checkbox[value='唱歌']"));
+            console.log($(":checked"));
+            console.log($("input:hidden"));
+            console.log($(":selected"));
+            // 获取表单值,val()获取值
+            console.log($("input:hidden").val());
+            //按钮的单击事件
+            //对象源.事件函数(function(){执行代码});
+            $(":button").click(function(){
+                //执行代码,val(string) 设置值
+                // $(":text").val("修改后的姓名");
+                //获取元素的内容html(),html(string)-->innerHtml属性
+                // 获取元素的文本内容text(),text(string)-->innerText属性
+                
+            //   console.log( $("p").text()) ;
+        //    var pObj= $("p").get(0);  //jquery对象转为js对象
+        //    pObj.style.color="red";
+        // css("样式名称","样式对应值")修改元素单个样式
+        //css({"样式名称1":"样式对应值1","样式名称2":"样式对应值2",....})修改元素多样式
+        // $("p").css("color","red");
+        // $("p").css({"color":"red","border":"1px solid green","backgroundColor":"yellow"});
+        // addClass()为元素添加类样式
+        // $("p").addClass("test");
+        // css(string):获取css样式值
+        // removeClass()删除元素的类样式
+        // $("p").removeClass("test");
+    //    console.log($("p").css("color")) ;
+    //    console.log($(":checkbox").length);
+    //    attr(string):获取元素属性值， attr(string,object):设置元素属性值
+    //    console.log( $("p").attr("index",2));
+    //    removeAttr(string):删除元素的指定属性
+       $("p").removeAttr("index");
+       console.log($("body"));
+    //    $("body").remove( $("p"));
+    $("p").remove();
+            });
+        });
+    </script>
+  </head>
+  <body>
+      <p class="test" index="0"><a>这是一个段落</a></p>
+      <input type="hidden" name="" value="不显示的值">
+    <input type="button" value="测试" id="btn" />
+    <hr />
+    <form>
+      姓名:<input type="text" name="xm" value="请输入姓名" /><br />
+      密码:<input type="password" name="pdw" /><br />
+      性别:<input type="radio" name="sex" value="男" checked="checked" />男
+      <input type="radio" name="sex" value="女" />女 <br />
+      爱好:
+      <input type="checkbox" name="hobby" value="打球" />打球
+      <input type="checkbox" name="hobby" value="唱歌" checked="checked" />唱歌
+      <input type="checkbox" name="hobby" value="摄影" checked="checked" />摄影
+      <br />
+      省份:<select name="province">
+        <option value="">请选择</option>
+        <option value="河南">河南</option>
+        <option value="河北" selected="selected">河北</option>
+        <option value="山东">山东</option>
+      </select>
+    </form>
+  </body>
+
+</html>

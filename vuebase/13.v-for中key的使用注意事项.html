@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <label for="">Id:
+<input type="text" v-model="id">
+        </label>
+            <label for="">Name:
+            <input type="text" v-model="name">
+                    </label>
+            <input type="button" value="添加" @click="add">
+        </div>
+        <!-- 注意：v-for循环的时候，key属性只能使用number或string类型 -->
+        <!-- 注意：key在使用的时候，必须使用v-bind属性绑定的形式，指定key的值 -->
+        <!-- 在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须在使用v-for同时，指定唯一的字符串/数字类型的:key值 -->
+        <P v-for="item in list" :key="item.id">
+            <input type="checkbox">{{item.id}}--- {{item.name}}
+        </P>
+    </div>
+
+    <script>
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: '',
+                list: [{
+                    id: 1,
+                    name: '张三'
+                }, {
+                    id: 2,
+                    name: '王五'
+                }, {
+                    id: 3,
+                    name: '赵六'
+                }, {
+                    id: 4,
+                    name: '李四'
+                }, {
+                    id: 5,
+                    name: '王麻子'
+                }]
+            },
+            methods: {
+                add() {
+                    // 在后面添加
+                    this.list.push({
+                        id: this.id,
+                        name: this.name
+                    });
+                    //在前面追加
+                    // 会出现一个问题，当我们选中了4以后再追加一条数据，会改变我们的选项
+                    //因为没有使用key，它只是标记了你选中了第4个位置上的数据，而不是某个数据。
+                    //解决方案，使用key指定数据项，即为每一位数据项指定key。
+                    // this.list.unshift({
+                    //     id: this.id,
+                    //     name: this.name
+                    // });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

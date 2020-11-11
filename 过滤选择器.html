@@ -7,33 +7,75 @@
     <script src="./jquery-3.4.1.min.js"></script>
     <script>
        
-            $(function(){
-                $("#btn").click(function(){
-                //:first 集合元素中的索引为第一个的元素
-                //$("ul li:first").css("color","red");
-                //:last 最后一个元素
-                //$("ul li:last").css("color","red");
-                //:not(selector) 排除某个元素
-                //$("ul li:not(.l2)").css("color","red");
-                //:even 偶数
-                //$("ul li:even").css("color","red");
-                //:odd 奇数
-                //$("ul li:odd").css("color","red");
-                //eq(index) :等于某个索引
-                //$("ul li:eq(3)").css("color","red");
-                //gt(index) : 大于某个索引
-                //$("ul li:gt(3)").css("color","red");
-                //lt(index):小于某个索引
-                $("ul li:lt(3)").css("color","red");
-            })
+
+
+
+
+
+
+
+
+
+
+
+            // $(function(){
+            //     $("#btn").click(function(){
+            //     //:first 集合元素中的索引为第一个的元素
+            //     //$("ul li:first").css("color","red");
+            //     //:last 最后一个元素
+            //     //$("ul li:last").css("color","red");
+            //     //:not(selector) 排除某个元素
+            //     //$("ul li:not(.l2)").css("color","red");
+            //     //:even 偶数
+            //     //$("ul li:even").css("color","red");
+            //     //:odd 奇数
+            //     //$("ul li:odd").css("color","red");
+            //     //eq(index) :等于某个索引
+            //     //$("ul li:eq(3)").css("color","red");
+            //     //gt(index) : 大于某个索引
+            //     //$("ul li:gt(3)").css("color","red");
+            //     //lt(index):小于某个索引
+            //     $("ul li:lt(3)").css("color","red");
+            // })
+            // });
+            //     
+
+            $(function()
+            {
+              $(":button").click(function(){
+                // 获取第一个li
+                console.log($("ul li:first"));
+                console.log($("ul li").first());
+                // 最后一个
+                console.log($("ul li:last"));
+                console.log($("ul li").last());
+                //第n个
+                console.log($("ul li:eq(5)"));
+                console.log($("ul li").eq(5));
+                 //获取索引号大于n的元素
+                 console.log($("ul li:gt(5)"));
+                console.log($("ul li").eq(5).nextAll());
+                 //获取索引号小于n的元素
+                 console.log($("ul li:lt(5)"));
+                console.log($("ul li").eq(5).prevAll());
+                // odd:奇数 even:偶数
+                console.log($("ul li:odd"));
+                // children()只获取子节点，不获取后代节点
+                console.log($("#top").children());
+                // 查找后代节点
+                console.log($("#top").find("li"));
+                // parent()获取父节点  parents()祖先辈
+                // console.log($(".two").parent());
+                // console.log($(".two").parents());
+              });
             });
-                 </script>
+             </script>
   
   </head>
   <body>
     <input type="button" value="测试" id="btn" />
     <hr />
-    <ul>
+    <ul id="top">
       <li>这是第1个元素</li>
       <li class="l2">这是第2个元素</li>
       <li>这是第3个元素</li>
@@ -44,6 +86,13 @@
       <li>这是第8个元素</li>
       <li>这是第9个元素</li>
       <li>这是第10个元素</li>
+    <li>
+      <ul>
+        <li>二级第1个元素</li>
+        <li class="two">二级第2个元素</li>
+        <li>二级第3个元素</li>
+      </ul>
+    </li>
     </ul>
   </body>
 </html>

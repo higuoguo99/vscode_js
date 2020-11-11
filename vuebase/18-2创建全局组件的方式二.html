@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1.3使用组件 -->
+        <mycom1></mycom1>
+    </div>
+
+    <script>
+        //1.1使用Vue.extend来创建全局的Vue组件，返回组件的模板对象com1
+        // var com1 = Vue.extend({
+        //         template: '<h3>这是使用Vue.extend创建的组件</h3>' //通过template属性，指定了组件要展示的HTML结构（模板内容）
+        //     })
+        //1.2使用Vue.component('组件的名称',创建出来的组件模板对象) 注册组件
+
+        //将示例1中的2步合并为1步。
+        // Vue.component第一个参数：组件的名称，将来在引用组件的时候，就是一个标签形式
+        //第二个参数：Vue.extend创建的组件，其中template就是组件将来要展示的HTML内容
+        Vue.component('mycom1', Vue.extend({
+            template: '<h3>这是使用Vue.extend创建的组件</h3>' //通过template属性，指定了组件要展示的HTML结构（模板内容）
+        }))
+
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

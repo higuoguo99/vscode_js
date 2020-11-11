@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第一步：引入包 -->
+    <script src="lib/vue.min.js"></script>
+</head>
+<!-- v-for:控制html元素中的循环，语法：v-for="item in 集合" -->
+<body>
+    <!-- 第二步：创建模板 -->
+    <div id="app">
+        <!-- v-for -->
+     <ul>
+         <li v-for="s in students">学号是：{{s.no}},姓名是：{{s.name}}</li>
+     </ul>
+    </div>
+
+</body>
+<script type="text/javascript">
+// 第三步：创建Vue对象
+    new Vue({
+        //边界管理
+        el:'#app',
+        //设置数据
+        data:{
+            students:[{no:01,name:'张三'},
+            {no:02,name:'李四'},
+            {no:03,name:'王五'},
+            {no:04,name:'赵六'}
+            ]
+        }
+    })
+</script>
+</html>

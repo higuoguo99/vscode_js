@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        $(function()
+        {
+            // 获取所有p元素,空格找后代
+          console.log($("#box p")) ; 
+        //   >找子节点
+          console.log($("#box>p")) ; 
+        //   +找第一个紧挨着的元素
+          console.log($("h3+p"));
+          console.log($(".m22c~p"));
+          console.log($("p[class='c1']"));//查找class属性值为c1的p元素
+          console.log($("p[class!='c1']"));//查找class属性值不为c1的p元素
+          console.log($("p[class*='m']"));//查找class属性值包含了m的p元素
+          console.log($("p[class^='c']"));//查找class属性值以c开始的p元素
+       console.log($("input[type='button']"));
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="设置样式" onclick="setStyle()" />
+    <h1>静夜思</h1>
+    <div id="box">
+      <h3>静夜思</h3>
+      <p class="c1" index="0">床前明月光，</p>
+      <p>疑是地上霜。</p>
+      <p class="c1">抬头望明月，</p>
+      <p>低头思故乡。</p>
+      <div>这是一个DIV</div>
+      <div>
+        <h3>登鹳雀楼</h3>
+        <p class="c2">白日依山尽，</p>
+        <p class="m22c">黄河入海流。</p>
+        <p class="c2">欲穷千里目，</p>
+        <p class="cm1">更上一层楼。</p>
+      </div>
+    </div>
+    <span>这是一个SPAN</span>
+  </body>
+</html>

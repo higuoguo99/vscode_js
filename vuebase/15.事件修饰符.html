@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .inner {
+            height: 150px;
+            background-color: palevioletred;
+        }
+        
+        .outer {
+            padding: 40px;
+            background-color: red;
+        }
+    </style>
+    <script src="./lib/vue.min.js"></script>
+</head>
+
+<body>
+    <!-- 事件修饰符：
+    1、.stop阻止冒泡
+    2、.prevent阻止默认事件 
+    3、.capture添加事件侦听器时使用事件捕获模式(冒泡，捕获)
+    4、.self只当事件在该元素本身（比如不是子元素）触发时触发回调
+    5、.once事件只触发一次
+    -->
+    <div id="app">
+        <!-- 触发内部元素的事件，则包裹该元素的外部元素也会触发相应的事件，事件就向泡泡一样往外一层一层冒出来，冒泡是事件的默认模式，可以使用.stop阻止冒泡 -->
+        <div class="inner" @click="div1Handler">
+            <input type="button" value="点它" @click.stop="btnHandler">
+
+        </div>
+        <!-- 超链接的默认事件 -->
+        <a href="https://www.baidu.com" @click.prevent="linkHandler">百度一下</a>
+        <!-- capture -->
+        <div class="inner" @click.capture="div1Handler">
+            <input type="button" value="点它" @click="btnHandler">
+
+        </div>
+        <br/>
+        <!-- self -->
+        <div class="inner" @click.self="div1Handler">
+            <input type="button" value="点它" @click="btnHandler">
+
+        </div>
+        <!-- once -->
+        <h1>once</h1>
+        <div class="inner" @click="div1Handler">
+            <input type="button" value="点它" @click.once="btnHandler">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 使用.prevent阻止默认行为 -->
+        <!-- <a href="https://www.baidu.com" @click.prevent="linkClick">有问题，先去百度</a> -->
+        <!-- 使用.capture实现捕获触发事件的机制 -->
+        <!-- <div class="inner" @click.capture="div1Handler">
+            <input type="button" value="点它" @click="btnHandler">
+        </div> -->
+        <!-- 使用.self实现只有点击当前元素的时候，才会触发事件处理函数-->
+        <!-- <div class="inner" @click.self="div1Handler">
+            <input type="button" value="点它" @click="btnHandler">
+        </div> -->
+        <!-- 使用.once只触发一次事件处理函数 -->
+        <!-- <a href="https://www.baidu.com" @click.prevent.once="linkClick">有问题，先去百度</a>
+        <input type="button" @click.once="dj" value="点击"> -->
+        <!-- 演示：.stop和.self的区别 -->
+
+        <!-- <div class="outer" @click="div2Handler">
+            <div class="inner" @click="div1Handler">
+                <input type="button" value="点它" @click.stop="btnHandler">
+            </div>
+        </div> -->
+        <!-- .self只会阻止自己身上冒泡行为的触发，并不会真正阻止冒泡行为 -->
+        <!-- <div class="outer" @click="div2Handler">
+            <div class="inner" @click.self="div1Handler">
+                <input type="button" value="点它" @click="btnHandler">
+            </div>
+        </div> -->
+    </div>
+
+    <script>
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                div1Handler() {
+                    console.log("inner div触发了点击事件");
+                },
+                btnHandler() {
+                    console.log("btn触发了点击事件")
+                },
+                linkHandler() {
+                    console.log("超链接阻止默认事件")
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

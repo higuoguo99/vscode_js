@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第一步：引入包 -->
+    <script src="lib/vue.min.js"></script>
+</head>
+<!-- v-model:唯一的一个实现数据双向绑定的指令 -->
+
+<body>
+    <!-- 第二步：创建模板 -->
+    <div id="app">
+        <!-- v-bind绑定值，只能实现数据的单向绑定，从M自动绑定到V中去。无法实现数据的双向绑定。 -->
+        <input type="text" /> <br/>
+        <!-- v-model：可以实现数据表单元素和Model中数据的双向绑定-->
+        <input type="text" />
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    // 第三步：创建Vue对象
+    new Vue({
+        //边界管理
+        el: '#app',
+        //设置数据
+        data: {
+            name: '好好学习，天天向上'
+        }
+    })
+</script>
+
+</html>

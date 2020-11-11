@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引用vue.js -->
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <!-- 创建视图View -->
+    <div id="app">
+      <h1>{{msg}}123</h1>  
+    </div>
+
+</body>
+<!-- 创建vue实例，ViewModel -->
+<script>
+var vm=new Vue({
+    el:'#app',
+    data:{
+        msg:"欢迎学习Vue"
+    }
+})
+</script>
+</html>
